@@ -58,12 +58,19 @@ foreach (string name in studentNames)
     else if (currentStudent == "Logan")
         studentScores = loganScores;
 
-    int sumAssignmentScores = 0;
-    decimal currentStudentGrade = 0;
+
+    //contadores
     int gradedAssignments = 0;
-    decimal examScore = 0;
-    decimal extraCredit = 0;
     int extraAssignments = 0;
+    //sums
+    decimal sumExamScores = 0;
+    decimal sumExtraCreditScores = 0;
+    //currentStudents
+    decimal currentStudentGrade = 0;
+    decimal currentStudentExamScore = 0;
+    decimal currentStudentExtraCreditScore = 0;
+    decimal currentStudentPoints = 0;
+    
 
     /* 
     the inner foreach loop sums assignment scores
@@ -75,22 +82,22 @@ foreach (string name in studentNames)
 
         if (gradedAssignments <= examAssignments)
         {
-            sumAssignmentScores += score;
-            examScore += score;
+            sumExamScores += score;
         }
 
         else
         {
             extraAssignments += 1;
-            sumAssignmentScores += score / 10;
-            extraCredit+= score;
+            sumExtraCreditScores+= score;
         }
 
     }
 
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
-    examScore /= (decimal)examAssignments;
-    extraCredit/= (decimal)extraAssignments;
+    currentStudentExamScore = sumExamScores / (decimal)examAssignments;
+    currentStudentExtraCreditScore = sumExtraCreditScores / ((decimal)extraAssignments);
+    currentStudentPoints = ((decimal)sumExtraCreditScores / 10) /examAssignments;
+
+    currentStudentGrade = (decimal)(sumExamScores + ((decimal)sumExtraCreditScores / 10)) / examAssignments;
 
     if (currentStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
@@ -131,10 +138,14 @@ foreach (string name in studentNames)
     else
         currentStudentLetterGrade = "F";
 
-    // Student         Grade
-    // Sophia:         92.2    A-
+// Student         Exam Score      Overall Grade   Extra Credit
 
-    Console.WriteLine($"{currentStudent}\t\t{examScore}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{extraCredit} (0 pts)");
+// Sophia          92.2            95.88   A       92 (3.68 pts)
+// Andrew          89.6            91.38   A-      89 (1.78 pts)
+// Emma            85.6            90.94   A-      89 (5.34 pts)
+// Logan           91.2            93.12   A       96 (1.92 pts)
+
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentExamScore}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{currentStudentExtraCreditScore} ({currentStudentPoints} pts)");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
