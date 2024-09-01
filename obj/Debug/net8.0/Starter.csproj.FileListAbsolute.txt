@@ -12,3 +12,4 @@ C:\Users\fgoro\source\repos\proyectoActualizarAppMicrosoft-CSharp\obj\Debug\net8
 C:\Users\fgoro\source\repos\proyectoActualizarAppMicrosoft-CSharp\obj\Debug\net8.0\Starter.pdb
 C:\Users\fgoro\source\repos\proyectoActualizarAppMicrosoft-CSharp\obj\Debug\net8.0\Starter.genruntimeconfig.cache
 C:\Users\fgoro\source\repos\proyectoActualizarAppMicrosoft-CSharp\obj\Debug\net8.0\ref\Starter.dll
+C:\Users\fgoro\source\repos\proyectoActualizarAppMicrosoft-CSharp\obj\Debug\net8.0\Starter.sourcelink.json
